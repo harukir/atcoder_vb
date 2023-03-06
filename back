@@ -1,0 +1,49 @@
+'https://atcoder.jp/contests/agc014/tasks/agc014_a
+
+imports System
+
+Public Class pg
+
+    Shared Sub Main()
+        dim arg as string() = Console.ReadLine().Split(" ")
+        dim a as integer = integer.parse(arg(0))
+        dim b as integer = integer.parse(arg(1))
+        dim c as integer = integer.parse(arg(2))
+        if a = b andalso a = c then
+            if a mod 2 = 0 then
+                Console.WriteLine("-1")
+                exit sub
+            else
+                Console.WriteLine("0")
+                exit sub
+            end if
+        end if
+
+        dim aHalf as integer
+        dim bHalf as integer
+        dim cHalf as integer
+
+        dim cnt as integer = 1
+
+        for i as integer = 0 to 1 step 0
+
+            aHalf = a/2
+            bHalf = b/2
+            cHalf = c/2
+
+            a = bHalf + cHalf
+            b = aHalf + cHalf
+            c = aHalf + bHalf
+
+            if a mod 2 <> 0 orelse b mod 2 <> 0 orelse c mod 2 then
+                Console.WriteLine(cnt.tostring)
+                exit sub
+            end if
+
+            cnt += 1
+
+        next
+
+    End Sub
+
+End Class
