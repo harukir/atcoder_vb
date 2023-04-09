@@ -1,86 +1,86 @@
-'
+''
 
-Imports System
-Imports System.IO
-Imports System.Runtime.CompilerServices
-Imports System.Text
+'Imports System
+'Imports System.IO
+'Imports System.Runtime.CompilerServices
+'Imports System.Text
 
-Public Class pg
-
-
-    Shared Sub Main()
-
-        Dim arg As String() = Console.ReadLine().Split(" ")
-        Dim N As Double = Double.Parse(arg(0))
-        Dim M As Double = Double.Parse(arg(1))
-
-        If Math.Pow(N, 2) < M Then
-            Console.WriteLine("-1")
-            Exit Sub
-        End If
-
-        If N >= M Then
-            Console.WriteLine(M.ToString)
-            Exit Sub
-        End If
-
-        'If IsPrime(M) Then
-        '    Console.WriteLine("-1")
-        '    Exit Sub
-        'End If
-
-        Dim cnt As Double = M - 1
-
-        Dim ssss As Double
-
-        Dim aaaa As Double
-
-        While 1 = 1
-
-            cnt += 1
-
-            'If IsPrime(cnt) Then Continue While
-
-            ssss = Math.Truncate(Math.Sqrt(cnt))
-
-            'aaaa = Math.Pow(ssss + 1, 2)
-
-            'Dim h As New HashSet(Of Double)
-            'For i As Double = cnt To aaaa - 1
-            '    h.Add(i)
-            'Next
+'Public Class pg
 
 
-            Dim aabb = Math.Ceiling(cnt / N)
+'    Shared Sub Main()
 
-            For i As Double = aabb To ssss
-                If (cnt Mod i) = 0 AndAlso (cnt / i) <= N Then
-                    Exit While
-                End If
-            Next
+'        Dim arg As String() = Console.ReadLine().Split(" ")
+'        Dim N As Double = Double.Parse(arg(0))
+'        Dim M As Double = Double.Parse(arg(1))
 
-        End While
+'        If Math.Pow(N, 2) < M Then
+'            Console.WriteLine("-1")
+'            Exit Sub
+'        End If
+
+'        If N >= M Then
+'            Console.WriteLine(M.ToString)
+'            Exit Sub
+'        End If
+
+'        'If IsPrime(M) Then
+'        '    Console.WriteLine("-1")
+'        '    Exit Sub
+'        'End If
+
+'        Dim cnt As Double = M - 1
+
+'        Dim ssss As Double
+
+'        Dim aaaa As Double
+
+'        While 1 = 1
+
+'            cnt += 1
+
+'            'If IsPrime(cnt) Then Continue While
+
+'            ssss = Math.Truncate(Math.Sqrt(cnt))
+
+'            'aaaa = Math.Pow(ssss + 1, 2)
+
+'            'Dim h As New HashSet(Of Double)
+'            'For i As Double = cnt To aaaa - 1
+'            '    h.Add(i)
+'            'Next
 
 
-        Console.WriteLine(cnt.ToString)
+'            Dim aabb = Math.Ceiling(cnt / N)
 
-    End Sub
+'            For i As Double = aabb To ssss
+'                If (cnt Mod i) = 0 AndAlso (cnt / i) <= N Then
+'                    Exit While
+'                End If
+'            Next
 
-    'Public Shared Function IsPrime(ByVal Number As Double) As Boolean
-    '    Dim K As Long
+'        End While
 
-    '    If Number < 2 Then
-    '        Return False
-    '    End If
 
-    '    For K = 2 To CDbl(Math.Sqrt(Number))
-    '        If Number Mod K = 0 Then
-    '            Return False
-    '        End If
-    '    Next K
+'        Console.WriteLine(cnt.ToString)
 
-    '    Return True
+'    End Sub
 
-    'End Function
+'    'Public Shared Function IsPrime(ByVal Number As Double) As Boolean
+'    '    Dim K As Long
 
-End Class
+'    '    If Number < 2 Then
+'    '        Return False
+'    '    End If
+
+'    '    For K = 2 To CDbl(Math.Sqrt(Number))
+'    '        If Number Mod K = 0 Then
+'    '            Return False
+'    '        End If
+'    '    Next K
+
+'    '    Return True
+
+'    'End Function
+
+'End Class
