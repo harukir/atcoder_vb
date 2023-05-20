@@ -1,4 +1,4 @@
-''
+''https://atcoder.jp/contests/abc281/tasks/abc281_a
 
 'Imports System
 'Imports System.IO
@@ -11,14 +11,16 @@
 '    Sub Main()
 
 '        'Dim S As String = in_s()
-'        'Dim N As Decimal = in_d()
+'        Dim N As Decimal = in_d()
 
 '        'Dim argS As String() = in_sAry()
 '        'Dim argD As Decimal() = in_dAry()
 
+'        For i As Decimal = N To 0 Step -1
 
+'            Console.WriteLine(i.ToString)
 
-'        Console.WriteLine()
+'        Next
 
 '    End Sub
 
@@ -73,6 +75,4 @@
 '#End Region
 
 'End Module
-
-
 
