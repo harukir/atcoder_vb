@@ -1,7 +1,6 @@
 ''
 
 'Imports System
-'Imports System.Dynamic
 'Imports System.IO
 'Imports System.Runtime.CompilerServices
 'Imports System.Security.Cryptography.X509Certificates
@@ -15,76 +14,75 @@
 '        'Dim N As Decimal = in_d()
 
 '        'Dim argS As String() = in_sAry()
+'        'Dim argD As Decimal() = in_dAry()
+
 '        Dim argD As Decimal() = in_dAry()
 
 '        Dim N As Decimal = argD(0)
-'        Dim Q As Decimal = argD(1)
+'        Dim M As Decimal = argD(1)
+'        Dim H As Decimal = argD(2)
+'        Dim K As Decimal = argD(3)
 
-'        Dim query As String()
+'        Dim S As String = in_s()
 
-'        Dim ss As New Dictionary(Of Decimal, HashSet(Of Decimal))
+'        Dim healP As New HashSet(Of String)
 
-'        Dim ans As New StringBuilder
-
-'        For i As Decimal = 0 To Q - 1
-'            query = in_sAry()
-
-'            If query(0) = "1" Then
-
-'                Dim p1 As Decimal = Decimal.Parse(query(1))
-'                Dim p2 As Decimal = Decimal.Parse(query(2))
-
-'                If ss.ContainsKey(p1) Then
-'                    ss(p1).Add(p2)
-'                Else
-'                    ss.Add(p1, New HashSet(Of Decimal)({p2}.ToList))
-'                End If
-
-'                If ss.ContainsKey(p2) Then
-'                    ss(p2).Add(p1)
-'                Else
-'                    ss.Add(p2, New HashSet(Of Decimal)({p1}.ToList))
-'                End If
-
-'            End If
-
-'            If query(0) = "2" Then
-
-'                Dim p As Decimal = Decimal.Parse(query(1))
-
-'                If ss.ContainsKey(p) Then
-
-'                    Dim tempHash As New HashSet(Of Decimal)(ss(p))
-
-'                    For Each p2 As Decimal In tempHash
-
-'                        If ss.ContainsKey(p) Then ss.Remove(p)
-
-'                        If ss(p2).Contains(p) Then
-'                            ss(p2).Remove(p)
-'                            If ss(p2).Count = 0 Then ss.Remove(p2)
-'                        End If
-
-'                    Next
-'                End If
-
-'            End If
-
-'            ans.AppendLine((N - ss.Count).ToString)
+'        Dim temp As Decimal()
+'        For i As Decimal = 0 To M - 1
+'            temp = in_dAry()
+'            healP.Add(getP(temp(0), temp(1)))
 '        Next
 
-'        Console.WriteLine(ans.ToString)
+'        Dim genzaiP As New List(Of Decimal)
+'        genzaiP.add(0)
+'        genzaiP.add(0)
+
+'        Dim vec As String
+
+'        Dim isMoved As Boolean = True
+
+'        For i As Decimal = 0 To N - 1
+
+'            vec = S.Substring(i, 1)
+'            move(genzaiP, vec)
+'            H -= 1
+
+'            If H < 0 Then
+'                isMoved = False
+'                Exit For
+'            End If
+
+'            If healP.Contains(getP(genzaiP)) AndAlso H < K Then
+'                H = K
+'                healP.Remove(getP(genzaiP))
+'            End If
+
+'        Next
+
+
+'        Console.WriteLine(If(isMoved, "Yes", "No"))
 
 '    End Sub
 
-'    Function con(ByVal p1 As Decimal, ByVal p2 As Decimal) As String
 
-'        Return Math.Min(p1, p2).ToString & "," & Math.Max(p1, p2)
-
+'    Function getP(p As List(Of Decimal)) As String
+'        Return p(0).ToString & "," & p(1).ToString
 '    End Function
 
+'    Function getP(x As Decimal, y As Decimal) As String
+'        Return x.ToString & "," & y.ToString
+'    End Function
 
+'    Sub move(genzaiP As List(Of Decimal), vec As String)
 
+'        Select Case vec
+'            Case "R" : genzaiP(0) += 1
+'            Case "L" : genzaiP(0) -= 1
+'            Case "U" : genzaiP(1) += 1
+'            Case "D" : genzaiP(1) -= 1
+'        End Select
+
+'    End Sub
 
 
 
