@@ -10,15 +10,26 @@
 
 '    Sub Main()
 
-'        'Dim S As String = in_s()
-'        'Dim N As Decimal = in_d()
+'        Dim argD As Decimal() = in_dAry()
 
-'        'Dim argS As String() = in_sAry()
-'        'Dim argD As Decimal() = in_dAry()
+'        Dim N1 As Decimal = argD(0)
+'        Dim N2 As Decimal = argD(1)
+'        Dim M As Decimal = argD(2)
 
+'        Dim graph As New Dictionary(Of Decimal, HashSet(Of Decimal))
 
+'        For i As Decimal = 0 To M - 1
 
-'        Console.WriteLine()
+'            argD = in_dAry()
+
+'            addDic(graph, argD(0), argD(1))
+'            addDic(graph, argD(1), argD(0))
+'        Next
+
+'        Dim N1max As Decimal = bfs(graph, 1)
+'        Dim N2max As Decimal = bfs(graph, N1 + N2)
+
+'        Console.WriteLine((N1max + N2max + 1).ToString)
 
 '    End Sub
 
@@ -63,17 +74,11 @@
 
 '    End Sub
 
-'    ''' <summary>
-'    ''' BFS
-'    ''' サンプルとしてABC309D(https://atcoder.jp/contests/abc309/tasks/abc309_d)で使用したBFSである「引数のグラフの中で、startPから最も遠い距離を返すBFS」を実装
-'    ''' </summary>
-'    ''' <param name="graph"></param>
-'    ''' <param name="startP"></param>
-'    ''' <returns></returns>
 '    Function bfs(graph As Dictionary(Of Decimal, HashSet(Of Decimal)), startP As Decimal) As Decimal
 
 '        Dim q As New Queue(Of Decimal)
 '        q.Enqueue(startP)
+
 
 '        Dim distance As New Dictionary(Of Decimal, Decimal)
 '        distance.Add(startP, 0)
@@ -104,6 +109,8 @@
 
 '    End Function
 
+
+
 '    ''' <summary>数値が素数であるか判定します。</summary>
 '    ''' <param name="Number">対象の数値を指定します。</param>
 '    ''' <returns>Numberが素数である場合Trueを返します。</returns>
@@ -123,6 +130,3 @@
 '#End Region
 
 'End Module
-
-
-
