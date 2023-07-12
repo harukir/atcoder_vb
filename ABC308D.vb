@@ -10,22 +10,66 @@
 
 '    Sub Main()
 
-'        'Dim S As String = in_s()
-'        'Dim N As Decimal = in_d()
+'        Dim argD As Decimal() = in_dAry()
+'        Dim H As Decimal = argD(0)
+'        Dim W As Decimal = argD(1)
 
-'        'Dim argS As String() = in_sAry()
-'        'Dim argD As Decimal() = in_dAry()
+'        Dim S As New List(Of List(Of String))
+
+'        For i As Decimal = 0 To H - 1
+'            S.Add(splitBlank(in_s))
+'        Next
+
+'        Dim arrived As New HashSet(Of String)
+'        Dim r As Boolean = dfs(S, arrived, 0, 0, 0)
 
 
-
-'        Console.WriteLine()
+'        Console.WriteLine(If(r, "Yes", "No"))
 
 '    End Sub
 
+'    Function dfs(s As List(Of List(Of String)), arrived As HashSet(Of String), h As Decimal, w As Decimal, moveCntMod As Decimal) As Boolean
 
+'        Dim moveStr As String = ""
+'        Select Case moveCntMod
+'            Case 0 : moveStr = "s"
+'            Case 1 : moveStr = "n"
+'            Case 2 : moveStr = "u"
+'            Case 3 : moveStr = "k"
+'            Case 4 : moveStr = "e"
+'        End Select
 
+'        If Not s(h)(w) = moveStr Then Return False
 
+'        arrived.Add(h.ToString & "," & w.ToString)
 
+'        If h = s.Count - 1 AndAlso w = s(0).Count - 1 Then Return True
+
+'        Dim nextMoveCntMod As Decimal = (moveCntMod + 1) Mod 5
+'        Dim nextH As Decimal
+'        Dim nextW As Decimal
+'        For i As Decimal = 0 To 3
+'            nextH = h
+'            nextW = w
+
+'            Select Case i
+'                Case 0 : nextH -= 1
+'                Case 1 : nextH += 1
+'                Case 2 : nextW -= 1
+'                Case 3 : nextW += 1
+'            End Select
+
+'            If arrived.Contains(nextH.ToString & "," & nextW.ToString) Then Continue For
+
+'            If nextH < 0 OrElse nextW < 0 OrElse nextH >= s.Count OrElse nextW >= s(0).Count Then Continue For
+
+'            If dfs(s, arrived, nextH, nextW, nextMoveCntMod) Then Return True
+
+'        Next
+
+'        Return False
+
+'    End Function
 
 
 '#Region "ƒ‰ƒCƒuƒ‰ƒŠ"
@@ -53,14 +97,6 @@
 
 '#End Region
 
-
-'    Sub Fill(Of T)(lst As List(Of T), val As T, count As Decimal)
-'        lst.Clear()
-'        For i As Decimal = 0 To count - 1
-'            lst.Add(val)
-'        Next
-'    End Sub
-
 '    Function splitBlank(s As String) As List(Of String)
 
 '        Dim r As New List(Of String)
@@ -70,6 +106,7 @@
 
 '        Return r
 '    End Function
+
 
 '    Sub addDic(ByRef dic As Dictionary(Of Decimal, HashSet(Of Decimal)), ByVal key As Decimal, ByVal val As Decimal)
 

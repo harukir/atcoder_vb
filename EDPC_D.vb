@@ -1,4 +1,4 @@
-''
+''https://atcoder.jp/contests/dp/tasks/dp_d
 
 'Imports System
 'Imports System.IO
@@ -10,15 +10,44 @@
 
 '    Sub Main()
 
-'        'Dim S As String = in_s()
-'        'Dim N As Decimal = in_d()
+'        Dim argD As Decimal() = in_dAry()
+'        Dim N As Decimal = argD(0)
+'        Dim W As Decimal = argD(1)
 
-'        'Dim argS As String() = in_sAry()
-'        'Dim argD As Decimal() = in_dAry()
+'        Dim item As New List(Of List(Of Decimal))
+
+'        For i As Decimal = 0 To N - 1
+'            item.Add(New List(Of Decimal)(in_dAry()))
+'        Next
+
+'        Dim dp As New List(Of List(Of Decimal))
+'        dp.Add(New List(Of Decimal))
+'        Fill(Of Decimal)(dp(0), 0, W + 1)
+
+'        For i As Decimal = 0 To item.Count - 1
+
+'            Dim itemWeight As Decimal = item(i)(0)
+'            Dim itemValue As Decimal = item(i)(1)
+
+'            dp.Add(New List(Of Decimal))
+
+'            For j As Decimal = 0 To W
+
+'                If j < itemWeight Then
+'                    dp(dp.Count - 1).Add(dp(dp.Count - 2)(j))
+'                    Continue For
+'                End If
+
+'                Dim v As Decimal = Math.Max(dp(dp.Count - 2)(j - itemWeight) + itemValue, dp(dp.Count - 2)(j))
+
+'                dp(dp.Count - 1).Add(v)
+
+'            Next
+
+'        Next
 
 
-
-'        Console.WriteLine()
+'        Console.WriteLine(Aggregate v As Decimal In dp(dp.Count - 1) Into Max)
 
 '    End Sub
 
