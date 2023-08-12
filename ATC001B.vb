@@ -10,27 +10,30 @@
 
 '    Sub Main()
 
-'        'Dim S As String = in_s()
-'        'Dim N As Decimal = in_d()
+'        Dim argD As Decimal() = in_dAry()
 
-'        'Dim argS As String() = in_sAry()
-'        'Dim argD As Decimal() = in_dAry()
+'        Dim N As Decimal = argD(0)
+'        Dim Q As Decimal = argD(1)
 
+'        Dim uf As New unionfind(N)
 
+'        Dim ans As New StringBuilder
 
-'        Console.WriteLine()
+'        For i As Decimal = 0 To Q - 1
+'            argD = in_dAry()
+
+'            If argD(0) = 0 Then
+'                uf.unite(argD(1), argD(2))
+'            Else
+'                ans.AppendLine(If(uf.isSame(argD(1), argD(2)), "Yes", "No"))
+'            End If
+'        Next
+
+'        Console.WriteLine(ans.ToString)
 
 '    End Sub
 
 
-
-
-
-
-
-'#Region "ライブラリ"
-
-'#Region "union find"
 '    Class unionfind
 
 '        'union by rank未実装
@@ -87,7 +90,9 @@
 '        End Function
 
 '    End Class
-'#End Region
+
+
+'#Region "ライブラリ"
 
 '#Region "入力受け取り"
 
