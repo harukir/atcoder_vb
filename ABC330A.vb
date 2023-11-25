@@ -10,36 +10,25 @@
 
 '    Sub Main()
 
-'        Dim S As String = in_s()
+'        'Dim S As String = in_s()
 '        'Dim N As Decimal = in_d()
 
 '        'Dim argS As String() = in_sAry()
-'        'Dim argD As Decimal() = in_dAry()
+'        Dim argD As Decimal() = in_dAry()
 
-'        Dim r As New Stack(Of String)
+'        Dim L As Decimal = argD(1)
 
-'        For i As Decimal = 0 To S.Length - 1
+'        Dim A As Decimal() = in_dAry()
 
-'            Dim tempS As String = S.Substring(i, 1)
+'        Dim r As Decimal = 0
 
-'            Dim isABC As Boolean = False
-
-'            If tempS = "C" Then
-'                If Not (r.Count < 2) Then
-
-'                    If r(0) = "B" AndAlso r(1) = "A" Then
-'                        r.Pop()
-'                        r.Pop()
-'                        isABC = True
-'                    End If
-'                End If
+'        For i As Decimal = 0 To A.Count - 1
+'            If A(i) >= L Then
+'                r += 1
 '            End If
-
-'            If Not isABC Then r.Push(tempS)
-
 '        Next
 
-'        Console.WriteLine(New String(String.Join("", r).Reverse().ToArray))
+'        Console.WriteLine(r.ToString)
 
 '    End Sub
 
@@ -141,14 +130,11 @@
 '        Next
 '    End Sub
 
-'    Function splitBlankCustom(s As String, ByRef cPos As List(Of Decimal)) As List(Of String)
+'    Function splitBlank(s As String) As List(Of String)
 
 '        Dim r As New List(Of String)
 '        For i As Decimal = 0 To s.Length - 1
 '            r.Add(s.Substring(i, 1))
-'            If s.Substring(i, 1) = "C" Then
-'                cPos.Add(i)
-'            End If
 '        Next
 
 '        Return r

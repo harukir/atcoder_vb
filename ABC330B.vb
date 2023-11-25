@@ -10,36 +10,37 @@
 
 '    Sub Main()
 
-'        Dim S As String = in_s()
+'        'Dim S As String = in_s()
 '        'Dim N As Decimal = in_d()
 
 '        'Dim argS As String() = in_sAry()
-'        'Dim argD As Decimal() = in_dAry()
+'        Dim argD As Decimal() = in_dAry()
 
-'        Dim r As New Stack(Of String)
+'        Dim N As Decimal = argD(0)
+'        Dim L As Decimal = argD(1)
+'        Dim R As Decimal = argD(2)
 
-'        For i As Decimal = 0 To S.Length - 1
+'        Dim A As Decimal() = in_dAry()
 
-'            Dim tempS As String = S.Substring(i, 1)
+'        Dim rr As New StringBuilder
 
-'            Dim isABC As Boolean = False
+'        For i As Decimal = 0 To N - 1
 
-'            If tempS = "C" Then
-'                If Not (r.Count < 2) Then
 
-'                    If r(0) = "B" AndAlso r(1) = "A" Then
-'                        r.Pop()
-'                        r.Pop()
-'                        isABC = True
-'                    End If
-'                End If
+
+'            If A(i) < L Then
+'                rr.Append(L.ToString).Append(" ")
+'            ElseIf A(i) > R Then
+'                rr.Append(R.ToString).Append(" ")
+'            Else
+'                rr.Append(A(i).ToString).Append(" ")
 '            End If
 
-'            If Not isABC Then r.Push(tempS)
+
 
 '        Next
 
-'        Console.WriteLine(New String(String.Join("", r).Reverse().ToArray))
+'        Console.WriteLine(rr.ToString.Trim)
 
 '    End Sub
 
@@ -141,14 +142,11 @@
 '        Next
 '    End Sub
 
-'    Function splitBlankCustom(s As String, ByRef cPos As List(Of Decimal)) As List(Of String)
+'    Function splitBlank(s As String) As List(Of String)
 
 '        Dim r As New List(Of String)
 '        For i As Decimal = 0 To s.Length - 1
 '            r.Add(s.Substring(i, 1))
-'            If s.Substring(i, 1) = "C" Then
-'                cPos.Add(i)
-'            End If
 '        Next
 
 '        Return r

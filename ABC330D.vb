@@ -10,36 +10,59 @@
 
 '    Sub Main()
 
-'        Dim S As String = in_s()
-'        'Dim N As Decimal = in_d()
+'        'Dim S As String = in_s()
+'        Dim N As Decimal = in_d()
 
 '        'Dim argS As String() = in_sAry()
 '        'Dim argD As Decimal() = in_dAry()
 
-'        Dim r As New Stack(Of String)
+'        Dim S As New List(Of List(Of String))
 
-'        For i As Decimal = 0 To S.Length - 1
+'        Dim rowMaruCnt As New Dictionary(Of Decimal, Decimal)
+'        Dim colMaruCnt As New Dictionary(Of Decimal, Decimal)
 
-'            Dim tempS As String = S.Substring(i, 1)
 
-'            Dim isABC As Boolean = False
+'        For i As Decimal = 0 To N - 1
+'            S.Add(New List(Of String)(splitBlank(in_s)))
 
-'            If tempS = "C" Then
-'                If Not (r.Count < 2) Then
+'            'Dim tempS As String = in_s()
 
-'                    If r(0) = "B" AndAlso r(1) = "A" Then
-'                        r.Pop()
-'                        r.Pop()
-'                        isABC = True
-'                    End If
+'            Dim tempRowMaruCnt As Decimal = 0
+'            For j As Decimal = 0 To N - 1
+
+'                If i = 0 Then colMaruCnt.Add(j, 0)
+
+'                'If tempS.Substring(j, 1) = "o" Then
+'                If S(i)(j) = "o" Then
+'                    tempRowMaruCnt += 1
+'                    colMaruCnt(j) += 1
 '                End If
-'            End If
+'            Next
 
-'            If Not isABC Then r.Push(tempS)
+'            rowMaruCnt.Add(i, tempRowMaruCnt)
 
 '        Next
 
-'        Console.WriteLine(New String(String.Join("", r).Reverse().ToArray))
+'        Dim r As Decimal = 0
+
+'        For i As Decimal = 0 To N - 1
+
+'            If rowMaruCnt(i) < 2 Then Continue For
+
+'            For j As Decimal = 0 To N - 1
+
+'                If S(i)(j) <> "o" Then Continue For
+
+'                If colMaruCnt(j) < 2 Then Continue For
+
+'                r += (rowMaruCnt(i) - 1) * (colMaruCnt(j) - 1)
+
+'            Next
+
+'        Next
+
+
+'        Console.WriteLine(r.ToString)
 
 '    End Sub
 
@@ -141,14 +164,11 @@
 '        Next
 '    End Sub
 
-'    Function splitBlankCustom(s As String, ByRef cPos As List(Of Decimal)) As List(Of String)
+'    Function splitBlank(s As String) As List(Of String)
 
 '        Dim r As New List(Of String)
 '        For i As Decimal = 0 To s.Length - 1
 '            r.Add(s.Substring(i, 1))
-'            If s.Substring(i, 1) = "C" Then
-'                cPos.Add(i)
-'            End If
 '        Next
 
 '        Return r

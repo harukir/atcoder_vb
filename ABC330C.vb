@@ -10,36 +10,44 @@
 
 '    Sub Main()
 
-'        Dim S As String = in_s()
-'        'Dim N As Decimal = in_d()
+'        'Dim S As String = in_s()
+'        Dim D As Decimal = in_d()
 
 '        'Dim argS As String() = in_sAry()
 '        'Dim argD As Decimal() = in_dAry()
 
-'        Dim r As New Stack(Of String)
 
-'        For i As Decimal = 0 To S.Length - 1
+'        'Dim x As Decimal = Math.Truncate(Math.Sqrt(D))
+'        'Dim y As Decimal = Math.Truncate(Math.Sqrt(D - (x * x)))
 
-'            Dim tempS As String = S.Substring(i, 1)
+'        'Dim r As Decimal = Math.Abs((x * x) + (y * y) - D)
 
-'            Dim isABC As Boolean = False
 
-'            If tempS = "C" Then
-'                If Not (r.Count < 2) Then
+'        'Dim x1 As Decimal = Math.Truncate(Math.Sqrt(D))
+'        'Dim x2 As Decimal = Math.Ceiling(Math.Sqrt(D))
+'        'Dim y1 As Decimal = Math.Truncate(Math.Sqrt(D - (x1 * x1)))
+'        'Dim y2 As Decimal = Math.Truncate(Math.Sqrt((x2 * x2) - D))
 
-'                    If r(0) = "B" AndAlso r(1) = "A" Then
-'                        r.Pop()
-'                        r.Pop()
-'                        isABC = True
-'                    End If
-'                End If
-'            End If
+'        'Dim r1 As Decimal = Math.Abs((x1 * x1) + (y1 * y1) - D)
+'        'Dim r2 As Decimal = Math.Abs((x2 * x2) + (y2 * y2) - D)
 
-'            If Not isABC Then r.Push(tempS)
+'        Dim tempX As Decimal = Math.Ceiling(Math.Sqrt(D))
+
+'        Dim r As Decimal = D
+
+'        For i As Decimal = 0 To tempX
+
+'            Dim x2 As Decimal = (i * i)
+
+'            Dim y1 As Decimal = Math.Truncate(Math.Sqrt(Math.Abs(D - x2)))
+'            Dim y2 As Decimal = Math.Ceiling(Math.Sqrt(Math.Abs(D - x2)))
+
+'            r = Math.Min(r, Math.Abs((x2 + (y1 * y1) - D)))
+'            r = Math.Min(r, Math.Abs((x2 + (y2 * y2) - D)))
 
 '        Next
 
-'        Console.WriteLine(New String(String.Join("", r).Reverse().ToArray))
+'        Console.WriteLine(r.ToString)
 
 '    End Sub
 
@@ -141,14 +149,11 @@
 '        Next
 '    End Sub
 
-'    Function splitBlankCustom(s As String, ByRef cPos As List(Of Decimal)) As List(Of String)
+'    Function splitBlank(s As String) As List(Of String)
 
 '        Dim r As New List(Of String)
 '        For i As Decimal = 0 To s.Length - 1
 '            r.Add(s.Substring(i, 1))
-'            If s.Substring(i, 1) = "C" Then
-'                cPos.Add(i)
-'            End If
 '        Next
 
 '        Return r
